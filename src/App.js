@@ -4,7 +4,8 @@ import Menu from './Components/Menu/Menu';
 import Home from './Pages/Home/Home';
 import PriceList from './Pages/PriceList/PriceList';
 import './App.css';
-import weather from './Components/weather/weather'
+import weather from './Components/weather/weather';
+import Crops from './Pages/Crops/Crops';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route exact path="/prices" component={PriceList}/>
               <Route exact path="/weather" component={weather}/>
+              <Route exact path="/Crops" component={Crops}/>
             </div>  
           </Router>
       </div>
