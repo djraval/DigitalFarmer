@@ -31,6 +31,7 @@ class Menu extends Component {
                     <MenuItem onClick={this.handleClose} href="/prices" >Commodity Prices</MenuItem>
                     <MenuItem onClick={this.handleClose} href="/weather">Weather</MenuItem>
                     <MenuItem onClick={this.handleClose} href="/Crops">Crops</MenuItem>
+                    <MenuItem onClick={this.handleClose} href="/PesticideDealers">Pest Dealers</MenuItem>
                 </Drawer>
             </div>
     );
