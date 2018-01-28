@@ -9,25 +9,38 @@ class PriceList extends React.Component{
         super();
         this.state = {
             'data' : [],
-            isLoading: true
+            isLoading: true,
+            lat: undefined,
+            long: undefined
         }
+        this.getLocationList = this.getLocationList.bind(this);
     }
 
     getList(){
-
-        var endpoint = "https://farmriseproxy-farmrise.1d35.starter-us-east-1.openshiftapps.com";
-
-        fetch(endpoint + '/prices.php')
+        var endpoint = "https://farmrise-farmrise.1d35.starter-us-east-1.openshiftapps.com";
+        fetch(endpoint + '/prices.php?lat='+this.state.lat+'&long='+this.state.long)
             .then(response => response.json())
             .then(response => this.setState({'data':response.data ,isLoading: false}))
             .catch(function(err) {
                 console.log('Fetch Error :-S', err);
-            });
-        
+            });    
     }
 
+    getLocationList() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position)=>{
+                this.setState({lat:position.coords.latitude, long:position.coords.longitude});
+                this.getList();
+            });
+        } else { 
+            console.log("Geolocation is not supported by this browser.");
+        }
+    }
+    
+
     componentDidMount(){
-        this.getList()
+        //this.getList()
+        this.getLocationList()
     }
 
     list(){

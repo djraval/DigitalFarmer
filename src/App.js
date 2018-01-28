@@ -7,6 +7,8 @@ import './App.css';
 import weather from './Components/weather/weather';
 import Crops from './Pages/Crops/Crops';
 import Dealers from './Pages/Dealers/Dealers';
+import FertDealers from './Pages/FertDealers/FertDealers';
+import MSP from './Pages/MSP/MSP';
 
 class App extends Component {
   render() {
@@ -20,6 +22,8 @@ class App extends Component {
               <Route exact path="/weather" component={weather}/>
               <Route exact path="/Crops" component={Crops}/>
               <Route exact path="/PesticideDealers" component={Dealers}/>
+              <Route exact path="/FertilizerDealers" component={FertDealers}/>
+              <Route exact path="/MSP" component={MSP}/>
             </div>  
           </Router>
       </div>

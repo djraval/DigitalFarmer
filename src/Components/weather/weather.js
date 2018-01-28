@@ -13,12 +13,8 @@ class weather extends React.Component{
         }
     }
 
-    test(){
+    getData(){
         DarkSkyApi.apiKey = 'a3a983d18a049644b9b78e850143c3f9';
-
-        /*DarkSkyApi.loadCurrent()
-            .then(result => console.log(result));*/
-
         DarkSkyApi.loadCurrent()
             .then((datas) => {
                 this.setState({'temp' : datas.temperature})
@@ -34,23 +30,15 @@ class weather extends React.Component{
     }
 
     componentDidMount(){
-        this.test();
+        this.getData();
     }
     render(){
-        var fullName = this.state.temp;
-        var rainprobability = this.state.rain;
-        var tomtemp1 = this.state.tomtemp;
-        var tomrain1 = this.state.tomrain;
         return(
             <div>
-
-                <h6> Today's Temparature : {fullName}</h6>
-
-                <h6>Tomorrow's Temperature : {tomtemp1}</h6>
-
-                <h6> Today's Rain Probability : {rainprobability} </h6>
-
-                <h6> Tomorrow's Rain Probability : {tomrain1} </h6>
+                <h6>Temparature Now: {this.state.temp} F</h6>   
+                <h6>Tomorrow's Estimated Temperature : {this.state.tomtemp} F</h6>
+                <h6>Today's Rain Probability : {this.state.rain} %</h6>
+                <h6>Tomorrow's Rain Probability : {this.state.tomrain} %</h6>
             </div>
         );
     }

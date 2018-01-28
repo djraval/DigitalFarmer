@@ -30,8 +30,11 @@ class Menu extends Component {
                     <MenuItem onClick={this.handleClose} href="/" >Home</MenuItem>
                     <MenuItem onClick={this.handleClose} href="/prices" >Commodity Prices</MenuItem>
                     <MenuItem onClick={this.handleClose} href="/weather">Weather</MenuItem>
-                    <MenuItem onClick={this.handleClose} href="/Crops">Crops</MenuItem>
+                    {/* <MenuItem onClick={this.handleClose} href="/Crops">Recommended Crops</MenuItem> */}
                     <MenuItem onClick={this.handleClose} href="/PesticideDealers">Pest Dealers</MenuItem>
+                    <MenuItem onClick={this.handleClose} href="/FertilizerDealers">Fertilizer Dealers</MenuItem>
+                    <MenuItem onClick={this.handleClose} href="/MSP">Minimum Support Price</MenuItem>
+
                 </Drawer>
             </div>
     );

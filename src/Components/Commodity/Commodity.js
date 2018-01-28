@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
-import MarketPrice from './MarketPrice';
-
 class Commodity extends Component {
 
     constructor(props) {
