@@ -30,3 +30,13 @@
 .hideElement{
   display: none;
 }
+
+#ctl00_ContentPlaceHolder1_GridViewApproved td:nth-of-type(5),#ctl00_ContentPlaceHolder1_GridViewApproved th:nth-of-type(5){
+  display: none;
+}
+
+#tablebottom td, #tablebottom th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 15px;
+}

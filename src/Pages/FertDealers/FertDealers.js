@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Crops extends Component {
+class FertDealers extends Component {
 
     constructor(props) {
         super(props);
@@ -10,7 +10,7 @@ class Crops extends Component {
             blockId: "0",
             distList: undefined,
             blockList: undefined,
-            dealersList: "Select your Block to get the List of all Recommended Crops",
+            dealersList: "Select your Block to get the List of all Dealers",
             hide:""
         }
         this.handleChangeState = this.handleChangeState.bind(this);
@@ -21,7 +21,7 @@ class Crops extends Component {
     handleChangeState(event){
         this.setState({stateId: event.target.value});
 
-        var endpoint = "http://localhost";
+        var endpoint = "https://farmrise-farmrise.1d35.starter-us-east-1.openshiftapps.com";
         fetch(endpoint + '/getDistList.php?SCode='+ event.target.value)
             .then(response => response.text())
             .then(data => {
@@ -34,7 +34,7 @@ class Crops extends Component {
     }
     handleChangeDist(event){
         this.setState({distId: event.target.value});
-        var endpoint = "http://localhost";
+        var endpoint = "https://farmrise-farmrise.1d35.starter-us-east-1.openshiftapps.com";
         fetch(endpoint + '/getBlockList.php?SCode='+ this.state.stateId + '&DCode='+ event.target.value)
             .then(response => response.text())
             .then(data => {
@@ -48,6 +48,16 @@ class Crops extends Component {
     handleChangeBlock(event){
         this.setState({blockId: event.target.value , hide : "hideElement" , dealersList: "Loading the list..."});
         console.log(this.state.stateId + this.state.distId + event.target.value);
+
+        var endpoint = "https://farmrise-farmrise.1d35.starter-us-east-1.openshiftapps.com";
+        fetch(endpoint + '/dealers.php?Type=F&SCode='+ this.state.stateId + '&DCode='+ this.state.distId + '&BCode=' + event.target.value)
+            .then(response => response.text())
+            .then(data => {
+                this.setState({dealersList: data});
+            })
+            .catch(function(err) {
+                console.log('Fetch Error :-S', err);
+            });
 
     }
 
@@ -119,4 +129,4 @@ class Crops extends Component {
     }
 }
 
-export default Crops;
+export default FertDealers;
