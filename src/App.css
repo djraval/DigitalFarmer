@@ -31,7 +31,7 @@
   display: none;
 }
 
-#ctl00_ContentPlaceHolder1_GridViewApproved td:nth-of-type(5),#ctl00_ContentPlaceHolder1_GridViewApproved th:nth-of-type(5){
+#ctl00_ContentPlaceHolder1_GridViewApproved td:nth-of-type(5),#ctl00_ContentPlaceHolder1_GridViewApproved th:nth-of-type(5),tr:last-child{
   display: none;
 }
 
