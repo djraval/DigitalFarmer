@@ -18,7 +18,7 @@ class PriceList extends React.Component{
 
     getList(){
         var endpoint = "https://farmrise-farmrise.1d35.starter-us-east-1.openshiftapps.com";
-        var endpoint = "http://localhost";
+        //var endpoint = "http://localhost";
         fetch(endpoint + '/prices.php?lat='+this.state.lat+'&long='+this.state.long)
             .then(response => response.json())
             .then(response => this.setState({'data':response.data ,isLoading: false}))

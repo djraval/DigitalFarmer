@@ -15,7 +15,7 @@ class MSP extends React.Component{
     getMSP(){
 
         var endpoint = "https://farmrise-farmrise.1d35.starter-us-east-1.openshiftapps.com";
-        var endpoint = "http://localhost";
+        //var endpoint = "http://localhost";
         fetch(endpoint + '/msp.php')
         .then(response => response.text())
         .then(data => {
