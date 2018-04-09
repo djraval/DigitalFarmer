@@ -22,7 +22,6 @@ class Dealers extends Component {
         this.setState({stateId: event.target.value});
 
         var endpoint = "https://farmrise-farmrise.1d35.starter-us-east-1.openshiftapps.com";
-        //var endpoint = "http://localhost";
         fetch(endpoint + '/getDistList.php?SCode='+ event.target.value)
             .then(response => response.text())
             .then(data => {
@@ -36,7 +35,6 @@ class Dealers extends Component {
     handleChangeDist(event){
         this.setState({distId: event.target.value});
         var endpoint = "https://farmrise-farmrise.1d35.starter-us-east-1.openshiftapps.com";
-        //var endpoint = "http://localhost";
         fetch(endpoint + '/getBlockList.php?SCode='+ this.state.stateId + '&DCode='+ event.target.value)
             .then(response => response.text())
             .then(data => {
@@ -52,7 +50,6 @@ class Dealers extends Component {
         console.log(this.state.stateId + this.state.distId + event.target.value);
 
         var endpoint = "https://farmrise-farmrise.1d35.starter-us-east-1.openshiftapps.com";
-        //var endpoint = "http://localhost";
         fetch(endpoint + '/dealers.php?Type=P&SCode='+ this.state.stateId + '&DCode='+ this.state.distId + '&BCode=' + event.target.value)
             .then(response => response.text())
             .then(data => {
